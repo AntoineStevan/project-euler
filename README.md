@@ -16,7 +16,8 @@ ls $language
 | where name =~ \d
 | select name
 | upsert file {|it|
-  $it.name | parse "python/{name}" | get name.0
+  let file = ($it.name | parse "python/{name}" | get name.0)
+  $"[($file)]\(($file)\)"
 }
 | upsert id {|it|
   $it.name | parse "python/{id}.py" | get id.0 | into int
