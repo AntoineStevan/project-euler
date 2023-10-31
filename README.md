@@ -9,7 +9,7 @@ Some additional resources can be found in [`res/`](res).
 
 ### generate language `README`s
 one can run the following in `nushell`
-```bash
+```nushell
 let language = "..."
 
 ls $language
